@@ -1,5 +1,6 @@
 package jspexp.z02_vo;
 
+// 패키지 주소  jspexp.z02_vo.Student
 public class Student {
 	private int sno;
 	private String name;

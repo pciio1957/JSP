@@ -12,15 +12,18 @@
 	<h3>${'hello jsp'}</h3>
 
 
-<% 
 
+<%-- 
+
+validation disable
 	// <%= > :  expression 형태로 jsp의 코드 출력 java코드 + html
-	// jsp 주석 : frontend단 출력 안됨 
+	// jsp 주석 : front-end단 출력 안됨 
 	// el 태그로 jsp에서 내부적으로 java 소스코드로 변환해주기 때문에 효과적으로 script 코드 처리 가능
-%>
 
 
-<!-- html 주석 : frontend단에 출력됨 -->
+ --%>
+
+<!-- html 주석 : front-end단에 출력됨 -->
 
 </body>
 </html>

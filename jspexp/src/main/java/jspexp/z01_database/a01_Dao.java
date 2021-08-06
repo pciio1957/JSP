@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import jspexp.z02_vo.Emp;
+import jspexp.z02_vo.Product;
 
 
 
@@ -295,6 +296,67 @@ public class a01_Dao {
 			return emp;	
 	}
 	
+	public ArrayList<Product> getProList() {
+		ArrayList<Product> pList = new ArrayList<Product>();
+
+		try {
+			setCon();
+			
+			String sql = "SELECT * FROM EXP_PRODUCT \r\n";
+					
+			stmt = con.createStatement();
+			rs = stmt.executeQuery(sql);
+			
+			while(rs.next()) {
+				pList.add(new Product 
+							(rs.getString(1),
+							rs.getInt(2),
+							rs.getInt(3))
+				);
+				
+			}
+
+			
+			rs.close(); stmt.close(); con.close();
+	
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+		return pList;	
+	}
+	
+	
+	public Product getProduct(String name) {
+		Product pro = null;
+
+		try {
+			setCon();
+			
+			String sql = "SELECT * FROM EXP_PRODUCT \r\n"
+					+ "WHERE pname= ?";
+
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, name);
+			
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+				pro = new Product(rs.getString(1),
+									rs.getInt(2),
+									rs.getInt(3)
+				);
+				
+			}
+			
+			rs.close(); pstmt.close(); con.close();
+	
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} 
+		return pro;	
+	}
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -338,6 +400,10 @@ public class a01_Dao {
 			System.out.println("데이터가 없습니다");
 		}
 		
+		//Product p = new Product("사과");
+		Product pro = dao.getProduct("사과");
+		
+		System.out.println(" Product 호출 : " + pro.getName());
 		
 		// 응용) A02_DeptDao.java에 부서번호를 통해서 검색되게 기능메소드를 구현하기 (3조)		
 		/*

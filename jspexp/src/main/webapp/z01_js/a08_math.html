@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+응용문제
+<h2></h2>
+<h2></h2>
+<h2></h2>
+<h2></h2>
+<h2></h2>
+
+가장 높은 점수 
+<h3></h3>
+
+가장 낮은 점수
+<h4></h4>
+
+</body>
+<script type="text/javascript">
+
+/*
+
+#Math객체
+1. java의 static 메소드와 동일 바로 사용
+2. 메소드 종류
+Math.abs(x)
+Math.acos(x)
+Math.asin(x)
+Math.atan(x)
+Math.atan2(y, x)
+Math.ceil(x) : 올림
+Math.cos(x)
+Math.exp(x)
+Math.floor(x) : 내림
+Math.log(x)
+Math.max(a, b, c... n) : 최대값
+Math.min(a, b, c...n) : 최소값
+Math.pow(x, y)
+Math.random() 0.0~1.0
+Math.round(z) 반올림처리
+Math.sin(x)
+Math.sqrt(x)
+Math.tan(x)
+
+*/
+
+// 응용) 5명이 주사위를 던지고 각각의 주사위 점수를 h2에 출력하고
+//		그중에 가장 높은 점수와 낮은 점수를 각각 h3, h4에 출력하기  (1조)
+
+var h2Obj = document.querySelectorAll("h2");
+var h3Obj = document.querySelector("h3");
+var h4Obj = document.querySelector("h4");
+var nums = [];
+
+for(var idx=0; idx<5; idx++){
+	var ranNum = (Math.floor(Math.random()*6+1));
+	nums[idx] = ranNum;
+	// nums.push(Math.floor(Math.random()*6+1)); 
+	h2Obj[idx].innerText = ranNum;
+}
+
+h3Obj.innerText = Math.max(nums[0], nums[1], nums[2], nums[3], nums[4]);
+h4Obj.innerText = Math.min(nums[0], nums[1], nums[2], nums[3], nums[4]);
+
+
+
+</script>
+</html>

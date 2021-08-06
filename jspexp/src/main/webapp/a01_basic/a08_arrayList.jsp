@@ -52,6 +52,9 @@
 	list.add("모니터");
 	list.add("키보드");
 	
+	// 바로 위에 add하지않고 간편하게 작성하는 방법
+	List<String> list2 = Arrays.asList("마우스", "모니터", "키보드");
+	
 	
 	ArrayList<Product> proList = new ArrayList<Product>();
 	

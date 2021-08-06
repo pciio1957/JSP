@@ -1,5 +1,6 @@
 package jspexp.z02_vo;
 
+// 패키지주소 jspexp.z02_vo.Member
 public class Member {
 	//아이디,패스워드,이름,권한,포인트
 	private String id;
@@ -10,6 +11,20 @@ public class Member {
 	
 	public Member() {
 		super();
+	}
+	
+	public Member(String id, String pw) {
+		super();
+		this.id = id;
+		this.pw = pw;
+	}
+
+	public Member(String id, String name, String auth, int point) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.auth = auth;
+		this.point = point;
 	}
 
 	public Member(String id, String pw, String name, String auth, int point) {

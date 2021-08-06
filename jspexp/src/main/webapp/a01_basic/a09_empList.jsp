@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"
     import="jspexp.z01_database.A05_PreparedDao"
     import="jspexp.z02_vo.Emp"
+    import="jspexp.z02_vo.Dept"
     import="java.util.*"
     
 %>
@@ -21,8 +22,18 @@
 
 </style>
 <script type="text/javascript">
+	// 전체 화면이 로딩될 때 시작할 js함수로
+	// body 최하단에 js를 선언한 효과이벤트 
 	window.onload = function() {
 		document.querySelector("h3").innerText="사원정보";
+		
+		var empSchArry = document.querySelectorAll("[name=ename], [name=job]");
+		
+		for(var idx=0; idx<empSchArry.length; idx++) {
+			empSchArry[idx].onkeyup = function () {
+				console.log(this.value);
+			}
+		}
 	}
 
 </script>
@@ -106,7 +117,9 @@
 	ArrayList<Emp> emplist = dao.getPreparedEmpList(new Emp(name, job));
 	%>
 	<h3> 아이디? 조회하기 </h3>
-	<form>
+	<form id="frm01">
+	<!--  form 객체의 하위 내용을 enter를 입력했을 때 자동으로 요청값을 전송하는
+		것을 브라우저가 지원하는 경우가 종종 있다  -->
 		<table>
 			<tr><th>사원명</th><td><input type="text" name="name" value="<%= name %>"></td></tr>
 			<tr><th>직책명</th><td><input type="text" name="job" value="<%= job %>"></td></tr>
@@ -142,6 +155,62 @@
 		<% } %>
 	</table>
 	
+	<%-- 
+	
+	#DB sql을 통한 jsp 화면 처리
+	1. sql 작성
+	2. sql의 단위를 할당할 vo 작성
+	3. DAO 기능 메소드 추가
+		0) 비슷한 유형 기능 메소드를 copy
+		1) 리턴할 유형 선언, vo, 매개변수
+		2) sql 할당, 리턴할 메소드 main()을 통해서 test
+	4. jsp에서 vo, arrayList, dao 객체를 import 함
+	5. dao 객체 생성 리턴할 arrayList 선언 및 활당
+	6. 화면구성 
+		1) 기본화면 구성 : form(검색), list 테이블 처리
+		2) 반복문 처리 
+		3) 요청값 받아서 dao단 요청값 전달 처리 
+			(검색)
+	
+	 --%>
+	 
+	 <%
+	 
+	 // 1. 요청값 받아오기
+	 String dname = request.getParameter("dname");
+	 String loc = request.getParameter("loc");
+	 
+	 // 2. 초기화시 default값 설정
+	 if(dname == null) dname = "";
+	 if(loc == null) loc = "";
+	 
+	 // 3. 데이터 처리 결과 받기
+	 List<Dept> dlist = dao.getDeptList(new Dept(0, dname, loc));
+	 %>
+	 
+	<h3> Dept테이블 조회 </h3>
+	<form>
+		<table>
+			<tr><th>부서명</th><td><input type="text" name="dname" value="<%= dname %>"></td></tr>
+			<tr><th>부서위치</th><td><input type="text" name="loc" value="<%= loc %>"></td></tr>
+			<tr><td colspan="2"><input type="submit" value="검색"/></td></tr>
+		</table>
+	</form>
+	
+	<table>
+		<tr>
+			<th>부서번호</th>
+			<th>부서명</th>
+			<th>부서위치</th>
+		</tr>
+		<% for(Dept d:dlist) { %>
+		<tr> 
+			<td><%= d.getDeptno() %></td>
+			<td><%= d.getDname() %></td>
+			<td><%= d.getLoc() %></td>
+		</tr>
+		<% } %>
+	</table>
 
 </body>
 </html>

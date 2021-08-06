@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h2></h2>
+	<h2></h2>
+	<h2></h2>
+	
+	<h2></h2>
+	<h2></h2>
+	<h2></h2>
+	
+	<h3></h3>
+	
+	<table id="tab01" border>
+	
+	</table>
+</body>
+<script type="text/javascript">
+
+/*
+
+#기타배열처리함수
+1. 배열명.forEach(function(단위객체, index, 배열전체){
+	// 매개변수로 단위객체, index, 배열 전체데이터를 처리할 수 있다.
+});
+
+2. 배열명.map(function(단위객체){
+	return 단위객체 <-- 해당 데이터를 연산 및 문자열 처리로 새로운 배열을 만듦
+});
+
+3. 배열명.filter(function(단위객체, index, 배열전체){
+	return boolean값; boolean값이 true인 데이터만 새로운 배열에 만들어진다
+});
+*/
+
+var h2Arr = document.querySelectorAll("h2");
+var arry = [70, 80, 90];
+var show = "";
+
+arry.forEach(function(point, index, arry){ 
+	show += (index+1) + "번 " + point + "점, ";
+});
+
+h2Arr[0].innerText = show;
+
+// 기존 배열에 적용
+arry.map(function(point){
+	return Math.floor(point*0.8);
+});
+
+h2Arr[1].innerText = arry;
+
+
+// 새로운 배열에 적용
+var str = arry.map(function(point){
+	return Math.floor(point*0.8);
+});
+
+h2Arr[2].innerText = str;
+
+
+// 응용) 구매물건의 가격을 배열로 3개를 입력하고 각각 15% 할인된 금액 출력하기 (2조)
+var prices = [10000, 5000, 8000];
+
+var discount = prices.map(function(price){
+	return Math.floor(price*0.85);
+});
+
+var h3Obj = document.querySelector("h3");
+h3Obj.innerText = discount;
+
+/*
+// 30명의 학생 점수
+var points = [];
+for(var cnt=1; cnt<=30; cnt++) {
+	points.push(Math.floor(Math.random() * 101)); // 0~100
+}
+
+h2Arr[3].innerText = points;
+
+// 그 중 60점 이상인 경우만 출력
+var passPoints = points.filter(function (point, index, arry){
+	return point>=60;
+});
+
+h2Arr[4].innerText = passPoints;
+*/
+
+
+
+// 기능 추가 - 국어/영어/수학
+// 30명의 학생 점수
+var points2 = [];
+for(var cnt=1; cnt<=30; cnt++) {
+	var stud = {}; // 배열안에 객체를 할당시킴
+	stud.kor = Math.floor(Math.random() * 101);
+	stud.eng = Math.floor(Math.random() * 101);
+	stud.math = Math.floor(Math.random() * 101);
+	points2.push(stud); 
+}
+
+h2Arr[5].innerText = points2;
+
+// 테이블에 해당 데이터들을 넣어줌
+var tab01 = document.querySelector("#tab01");
+var show = "";
+points2.forEach(function(stud, index, arry){
+	show += "<tr><td>" + index+1 + "</td><td>" + stud.kor + "</td><td>"
+	+ stud.eng + "</td><td>" + stud.math + "</td></tr>";
+});
+tab01.innerHTML = show;
+
+// 그 중 60점 이상인 경우만 출력
+var passPoints2 = points.filter(function (point, index, arry){
+	return point>=60;
+});
+
+h2Arr[6].innerText = passPoints2;
+
+
+</script>
+</html>
