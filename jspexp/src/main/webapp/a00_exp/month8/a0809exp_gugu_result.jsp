@@ -21,8 +21,13 @@
 		type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#h3Title").text("구매할 리스트 입력");
+		$("#h3Title").text("정답입니다");
 	});
+	
+	var msg = "${msg}";
+	if(msg != ""){
+		alert(msg);
+	}
 </script>
 </head>
 <%-- 
@@ -34,13 +39,10 @@
 %>
 <body>
 	<h3 align="center" id="h3Title"></h3>
-	<form id="frm01" method="post">
-	<table align="center" class="listTable">
-		<tr><th>구매물품 : </th><td><input type="text" name="buyname" value=""/></td></tr>
-		<tr><th>구매가격 : </th><td><input type="text" name="buyprice" value="0"/></td></tr>
-		<tr><th>구매갯수 : </th><td><input type="text" name="buycnt" value="0"/></td></tr>
-		<tr><td colspan="2" style="text-align:center" ><input type="submit" value="구매"/></td></tr>
-	</table>	
-	</form>
+	<table align="center" width="50%" class="listTable" >
+		<tr><th>입력한 내용</th></tr>
+		<%--  입력한 요청값은 el태그를 활용해서 param.XXx 형식 처리가능 --%>
+		<tr><th>${param.grade}X${param.cnt} = ${param.inReply}</th></tr>
+	</table>
 </body>
 </html>

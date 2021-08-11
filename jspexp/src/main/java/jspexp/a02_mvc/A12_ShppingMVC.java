@@ -32,11 +32,11 @@ public class A12_ShppingMVC extends HttpServlet {
 		
 		request.setCharacterEncoding("utf-8");
 		String buyname = request.getParameter("buyname");
-		String buypriceS = request.getParameter("buyprics");
+		String buypriceS = request.getParameter("buyprice");
 		String buycntS = request.getParameter("buycnt");
 		
-		int buyprice = (buypriceS!=null)?Integer.parseInt(buypriceS):0;
-		int buycnt = (buycntS!=null)?Integer.parseInt(buycntS):0;
+		int buyprice = buypriceS!=null?Integer.parseInt(buypriceS):0;
+		int buycnt = buycntS!=null?Integer.parseInt(buycntS):0;
 		int buysum = buyprice * buycnt;
 		
 		request.setAttribute("buyname", buyname);

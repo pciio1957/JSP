@@ -34,7 +34,11 @@
 2. A13MVC.java를 만들고, view단 호출(jsp)
    초기페이지에 임의의 구구단 [   ] X [   ] 정답 :[   ] [확인]
    정답을 맞추면 정답입니다. 페이지이동, 틀리면, 다시 구구단 문제 페이지로 이동 처리하게 하세요.
-   (A0806_A13MVC.java 생성)
+   내가 풀이 -> 서블릿 : A0806C.java
+   			화면단 : a0809exp.jsp (현재 페이지)
+   선생님 풀이 -> 서블릿 : A0809_A13MVC.java
+   				화면단 : a0809_gugu.jsp 
+   				화면결과 : a0809_gugu_result.jsp
    
 3. Date 하위 기능 메서드를 정리하세요
 	1) .getFullYear() : 연도  (주의! .getYear()시 1970년에서 지난 연도 출력)
@@ -66,6 +70,7 @@
 	
 6. 등록점수:[   ][등록][내림차순정렬][오름차순정렬]
    no  점수
+   a0809exp_regPoint.jsp
    
 ~ 9:30에 발표하겠습니다.
 
@@ -93,19 +98,84 @@
 	</form>
 	
 	<br>
-	<h3 align="center">구구단 문제</h3>
-	<table  align="center" class="listTable">
-		<tr>
-			<th><input type="text" name="ranNum01" value="<%= ranNum01 %>" readonly></th>
-			<th>X</th>
-			<th><input type="text" name="ranNum02" value="<%= ranNum02 %>" readonly></th>
-		</tr>
-		<tr>
-			<th>정답</th>
-			<td><input type="text" name="ans" value=""></td>
-			<td><input type="submit" name="btnAns" value="입력"></td>
-		</tr>
-	</table>	
+	<form>
+		<h3 align="center">구구단 문제</h3>
+		<table  align="center" class="listTable">
+			<tr>
+				<th><input type="text" name="ranNum01" value="<%= ranNum01 %>" readonly></th>
+				<th>X</th>
+				<th><input type="text" name="ranNum02" value="<%= ranNum02 %>" readonly></th>
+			</tr>
+			<tr>
+				<th>정답</th>
+				<td><input type="text" name="ans" value=""></td>
+				<td><input type="submit" name="btnAns" value="입력"></td>
+			</tr>
+		</table>	
+	</form>
 	
+	
+	<h3 align="center"> D-Day 계산기</h3>
+	<h4 align="center"></h4>
+	<form>
+		<table id= "tab03" align="center" class="listTable">
+			<tr>
+				<th> 오늘로부터 </th>
+				<td><input type="text" name="dday" size="2" value="0"/></td>
+				<td><input type="button" value="이전" id="btnpre"/>
+					<input type="button" value="이후" id="btnpost"/></td></tr>
+				<tr><td colspan="3" style="text-align:center" id="show"></td></tr>
+		</table>
+	</form>
 </body>
+
+<script type="text/javascript">
+
+/*
+내가 풀이한 것 (미완성)
+var btnpre = document.querySelector("#btnpre");
+var btnpost = document.querySelector("#btnpost");
+var txtd_day = document.querySelector("[name=dday]").value;
+
+var to_day = new Date();
+
+btnpre.onclick = function() {
+	to_day.setDate(to_day.getDate()-txtd_day);
+	
+	console.log("입력한 dday : " + txtd_day);
+	console.log("지난 dday : " + to_day);
+}
+
+btnpost.onclick = function() {
+	to_day.setDate(to_day.getDate()+txtd_day);
+	
+	console.log("입력한 dday : " +txtd_day);
+	console.log("지난 dday : " + to_day);
+}
+*/
+
+var to_day = new Date();
+
+$("h4").text("오늘 날짜 : " + to_day.toLocaleDateString());
+
+
+$("#btnpre").click(function(){
+	var dateCnt = $("[name=dday]").val();
+	alert(dateCnt + "일전 조회!");
+	
+	// 입력한 날짜의 수에 오늘 날짜를 뺀 날자 처리
+	to_day.setDate(to_day.getDate() - dateCnt); // 자동형변환
+	$("#show").text(to_day.toLocaleDateString());
+});
+
+$("#btnpost").click(function(){
+	var dateCnt = Number($("[name=dday]").val());
+	alert(dateCnt + "일후 조회!");
+	
+	to_day.setDate(to_day.getDate() + dateCnt);
+	$("#show").text(to_day.toLocaleDateString());
+});
+
+
+</script>
 </html>

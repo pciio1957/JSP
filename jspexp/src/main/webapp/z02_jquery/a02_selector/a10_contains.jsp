@@ -21,7 +21,14 @@
 		type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("#h3Title").text("구매할 리스트 입력");
+		$("h2").text("Contains 예제");
+		
+		
+		$("#btnSh").click(function(){
+			var ename = $("[name=ename]").val();
+			// td:contains("특정문자열") : 해당 문자열이 포함되어 있는 td
+			$("td:contains('" + ename + "')").css("background", "yellow");
+		});
 	});
 </script>
 </head>
@@ -33,14 +40,20 @@
 
 %>
 <body>
-	<h3 align="center" id="h3Title"></h3>
-	<form id="frm01" method="post">
+	<h2 align="center"></h2>
+	<form id="frm01">
 	<table align="center" class="listTable">
-		<tr><th>구매물품 : </th><td><input type="text" name="buyname" value=""/></td></tr>
-		<tr><th>구매가격 : </th><td><input type="text" name="buyprice" value="0"/></td></tr>
-		<tr><th>구매갯수 : </th><td><input type="text" name="buycnt" value="0"/></td></tr>
-		<tr><td colspan="2" style="text-align:center" ><input type="submit" value="구매"/></td></tr>
+		<tr><th>찾은 이름</th><td><input type="text" name="ename" value=""/></td></tr>
+		<tr><td colspan="2" style="text-align:center"><input type="button" id="btnSh" value="검색"/></td></tr>
 	</table>	
 	</form>
+	<table  align="center" class="listTable">
+		<tr><th>이름</th></tr>
+		<tr><td>홍길동</td></tr>
+		<tr><td>김길동</td></tr>
+		<tr><td>신길동</td></tr>
+		<tr><td>오길동</td></tr>
+	</table>	
+	
 </body>
 </html>

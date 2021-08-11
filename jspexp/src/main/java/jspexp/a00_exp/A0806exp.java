@@ -60,10 +60,13 @@ public class A0806exp extends HttpServlet {
 			ans = Integer.parseInt(ansS); 
 		}
 		
-		//if()
-		
+
 		// 초기페이지
 		String page = "a00_exp\\a0806exp.jsp";
+
+		if(isAns) {
+			page = "a00_exp\\a0806exp_result.jsp";
+		}
 		
 		RequestDispatcher rd = request.getRequestDispatcher(page);
 		rd.forward(request, response);
