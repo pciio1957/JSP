@@ -26,6 +26,9 @@
 </head>
 <%-- 
 #Request 기본 객체
+	cf) request, response는 둘 다 server에서 활용하는 jsp 코드의 객체이다
+		request는 클라이언트에서 오는 요청값에 대한 처리
+		response는 주로 서버에서 클라이언트로 보낼 화면 출력, 쿠키값 전송 등을 처리한다
 1. 웹 브라우저가 웹 서버에 전송한 요청 관련 정보 제공
 2. 주요 기능
 	1) 클라이언트와 관련된 정보 읽기 기능
@@ -34,12 +37,16 @@
 	4) 클라이언트가 전송한 요청 헤더 읽기 기능
 	5) 클라이언트가 전송한 쿠키 읽기 기능
 	6) 속성 처리 기능
-3. 기본 정보 제공 메소드
+	
+3. 기본 정보 제공 메소드 : client(브라우저)에서 전달되어온 정보를 기준으로 메소드로 접근하여 처리가능
 	http://localhost:7080/jspexp/index.jsp
 	1) request.getRemoteAddr() : 웹 서버에 연결한 클라이언트의 ip 주소를 구한다
 	2) request.getMethod() : 웹브라우저가 정보를 전송할 때 사용한 방식을 구한다
 	3) request.getRequestURI() : 웹 브라우저가 요청한 URL에서 경로를 구한다.
 	4) request.getContextPath() : jsp 페이지가 속한 웹 애플리케이션의 컨텍스트 경로를 구한다
+		웹서버의 절대적인 경로설정의 중요한 역할을 한다 
+		이 기준 경로를 통해 여러가지 자원(css, html, 이미지 등)에 접근하여 사용가능해짐
+		jspexp\src\main\webapp으로 서버내에 특정한 폴더 기준으로 설정한다.
 	5) request.getServerName() : 연결할 때 사용한 서버 이름을 구한다 ex) localhosst
 	6) request.getServerPort() : 서버가 실행중인 포트 번호를 구한다 ex) 7080
 

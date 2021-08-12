@@ -3,6 +3,11 @@
 div#border {
 	width: 730px;
 }
+
+table {
+	margin-bottom:20px;
+	padding:20px;
+}
  
 /* 리스트 테이블 */
 .listTable{BORDER-TOP: #1A90D8 2px solid; BORDER-bottom: #BABABA 1px solid;border-collapse: collapse;}

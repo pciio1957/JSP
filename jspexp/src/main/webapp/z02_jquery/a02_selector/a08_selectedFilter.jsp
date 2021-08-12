@@ -63,6 +63,8 @@
 		<tr><td colspan="2" id="show" style="text-align:center"></td></tr>
 	</table>	
 	</form>
+	
+	
 	<form>
 		<table id="tab02" align="center" class="listTable">
 			<tr><th>물건명</th>
