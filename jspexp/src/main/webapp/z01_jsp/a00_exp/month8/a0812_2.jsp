@@ -29,7 +29,13 @@ table {
 --%>
 <%
 
-	List<String> plist = Arrays.asList("사과", "바나나", "수박", "딸기", "오렌지", "키위");
+	Vector<String> plist = new Vector();
+	plist.add("사과");
+	plist.add("바나나");
+	plist.add("수박");
+	plist.add("딸기");
+	plist.add("오렌지");
+	plist.add("키위");
 	
 	String proc = request.getParameter("proc");
 	String ckprod[] = request.getParameterValues("ckprod");
@@ -42,22 +48,25 @@ table {
 	
 	if(proc != null) {
 		if(proc.equals("choice")){
-			if(ckprod!=nullㅁ && ckprod.length>0) {
+			if(ckprod!=null && ckprod.length>0) {
 				for(String prod:ckprod) {
 					result.add(prod);
 				}
 			}
 		}
+	
 		
 		if(proc.equals("delete")) {
 			result = plist;
-			if(ckprod!=null&&ckprod.length>0) {
+			if(ckprod!=null && ckprod.length>0) {
 				result.removeAll(Arrays.asList(ckprod));
 			}
 		}
+	} else{ // 초기화면...
+		result=plist;
 	}
 	
-	
+
 	
 	/*
 	if(proc != null) {
@@ -80,8 +89,10 @@ table {
 				}
 			}
 		}
-		*/
+		
 	}
+	
+	*/
 	
 %>
 <script src="<%=path%>/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
@@ -101,10 +112,6 @@ table {
 	<form id="frm01" method="post">
 		<input type="hidden" name="proc"/>
 		<table align="center" class="listTable">
-			<tr><th>사원명</th><td><input type="text" name="ename" value=""/></td></tr>
-			<tr><td colspan="2" style="text-align:center">
-				<input type="submit" value="검색"/>
-			</td></tr>
 			<tr><th><input type="checkbox" name="ckAll"/></th><th>물건명</th></tr>
 			<% for(String prod:plist) { %>
 			<tr><td><input type="checkbox" name="ckprod" value="<%= prod %>"/></td>

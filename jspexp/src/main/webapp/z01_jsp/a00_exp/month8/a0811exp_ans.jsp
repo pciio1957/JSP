@@ -57,7 +57,10 @@
 			//$("#tab03 td:contains('" + inValue + "')").css("background", "skyblue");
 			
 			// 2단계 해당 tr 검색
-			$("#tab03 tr:contains('" + inValue + "'):parent").parent().css("background", "skyblue");
+			//$("#tab03 tr:contains('" + inValue + "')").parent().css("background", "skyblue");
+			$("#tab03 tr:contains('" + inValue + "'):parent").css("background", "skyblue");
+			//$("#tab03 td:contains('"+inValue+"')").parent().css("background-color",'yellow');
+
 		});
 		
 		var wid = 100;

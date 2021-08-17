@@ -9,7 +9,43 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <context-param>
+  	<description>database_ip</description>
+  	<param-name>DB_IP</param-name>
+  	<param-value>127.0.0.1</param-value>
+  </context-param>
+  <context-param>
+  	<description>database_port</description>
+  	<param-name>DB_PORT</param-name>
+  	<param-value>1521</param-value>
+  </context-param>
+  <context-param>
+  	<description>database_sid</description>
+  	<param-name>DB_SID</param-name>
+  	<param-value>XE</param-value>
+  </context-param>
+  <context-param>
+  	<description>database_username</description>
+  	<param-name>DB_USERNAME</param-name>
+  	<param-value>SCOTT</param-value>
+  </context-param>
+  <context-param>
+  	<description>database_pass</description>
+  	<param-name>DB_PASS</param-name>
+  	<param-value>tiger</param-value>
+  </context-param>
+  <context-param>
+  	<description>이미지경로</description>
+  	<param-name>IMG_PATH</param-name>
+  	<param-value>/c01_img/</param-value>
+  </context-param>
+   <context-param>
+  	<description>다운로드경로</description>
+  	<param-name>DOWN_PATH</param-name>
+  	<param-value>/c02_down/</param-value>
+  </context-param>
 </web-app>
+
 
 
 

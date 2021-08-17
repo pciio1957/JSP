@@ -106,7 +106,7 @@
 		자바의 데이터 할당, 조건/반복문 등 프로세스 처리
 		ex) java의 main()있는 부분
 	3) expression : <%= %>
-		화면에 출력할 변수, 상수, 메소드리턴값 선언
+		화면에 출력할 변수, 상수, 메소드 리턴값 선언
 		ex) java의 main()안에 System.out.println();
 
 3. [jsp]request와 response객체를 서버/클라이언트 관점에서 기술하세요.

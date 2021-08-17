@@ -28,7 +28,7 @@ table {
 1. jsp는 변수들을 저장할 때 특정한 범위로 저장할 수 있다.
 	(page 범위, 시간 - session time, 브라우저와 서버 관계, 서버)
 	이때 활용되는 객체가 session scope 범위로
-	1) 한 페이지 단위에서 데이터를 저잘하고 활용할 수 있는 pageContext, 
+	1) 한 페이지 단위에서 데이터를 저장하고 활용할 수 있는 pageContext, 
 	
 	2) 요청 page까지 데이터를 저장하고 활용할 수 있는 request,
 		<jsp:forword page="요청페이지"/> request와 response를 요청페이지에 전달
@@ -61,13 +61,21 @@ table {
 --%>
 <%
 
-	// 해당 데이터 할당이 없다면 null 출력
 	// 1. page Scope 데이터 처리 : 현재 페이지에서만 사용할 수 있는 범위로 객체 선언
 	pageContext.setAttribute("pageVar", "홍길동(page)");
 
 	// 2. request Scope 데이터 처리 : reqeust 처리까지 데이터를 가지고 있다
 	request.setAttribute("requestVar", "김길동(request)");
-	
+
+	// 3. session scope 데이터 처리 : 같은 종류의 브라우저가 열려진 상황에서는 
+	//			해당 페이지를 link나 location.href 등으로 변경하더라도 데이터를 유지하는 것을 말한다
+	//			즉, 서버와 클라이언트가 접속하고 있는 상황에서 데이터 유지
+	session.setAttribute("sessionVar", "신길동(session)");
+
+	// 4. application scope 데이터 처리 : 브라우저의 종류와 접속의 상관없이 서버가 구동되어 있는 순간 데이터 유지
+	// 서버를 restart하기 전까지 살아있음 
+	application.setAttribute("applicationVar", "마길동(application)");
+
 %>
 <script src="<%=path%>/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -81,8 +89,9 @@ table {
 	<form id="frm01">
 	<table align="center" class="listTable">
 		<tr><th>페이지범위</th><td><%= pageContext.getAttribute("pageVar") %></td></tr>
-		<tr><th>페이지범위</th><td><%= request.getAttribute("requestVar") %></td></tr>
-		<tr><th>페이지범위</th><td><input type="text" name="ename" value=""/></td></tr>
+		<tr><th>request범위</th><td><%= request.getAttribute("requestVar") %></td></tr>
+		<tr><th>session범위</th><td><%= session.getAttribute("sessionVar") %></td></tr>
+		<tr><th>aplication범위</th><td><%= application.getAttribute("applicationVar") %></td></tr>
 		<tr><td colspan="2" style="text-align:center">
 			<input type="submit" value="검색"/>
 		</td></tr>

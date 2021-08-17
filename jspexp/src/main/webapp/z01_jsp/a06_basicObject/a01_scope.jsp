@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
     import = "jspexp.z01_database.*"
     import = "jspexp.z02_vo.*"
-    import = "java.util.*"    
+    import = "java.util.*"  
+    buffer = "10kb"
     %>
+    <%-- 페이지 지시자를 통해서 buffer 메모리 설정 --%>  
 <%
 	request.setCharacterEncoding("utf-8");
 	String path = request.getContextPath();
@@ -108,10 +110,8 @@ table {
 	%>	
 	
 	
-	<table align="center" class="listTable">
-		<tr><th></th><th></th><th></th></tr>
-		<tr><td></td><td></td><td></td></tr>
-	</table>	
-	
+	<h3 align="center"> 버퍼의 크기 : <%= out.getBufferSize() %></h3>
+	<h3 align="center"> 남은 버퍼의 크기 : <%= out.getRemaining() %></h3>
+	<h3 align="center"> 버퍼의 크기 : <%= out.isAutoFlush() %></h3>
 </body>
 </html>

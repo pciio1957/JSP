@@ -31,10 +31,13 @@
 3. 스크립트의 요소 3가지
 	1) declaration : <%! %>
 		ex) java의 class 바로 밑 선언 부분
+		변수나 상수, 메소드를 선언만 하는 역할로 하단에 scriptlet이나 expression에 의해 호출된다
 	2) scriplet : <% %>
 		ex) java의 main()있는 부분
 	3) expression : <%= %>
 		ex) java의 main()안에 System.out.println();
+		declaration이나 scriptlet에 의해 선언된 내용을 화면에 출력처리할 때 사용된다
+		cf) out.pirnt("") 유사하게 처리할 때 사용된다 
 
 --%>
 <%!

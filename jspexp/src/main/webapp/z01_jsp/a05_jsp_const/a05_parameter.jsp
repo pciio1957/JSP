@@ -54,8 +54,7 @@
 			name의 설정값이 1개 일때는 request.getParameter("단일요청");
 			name의 설정값이 다중일때는 request.getParameterValues("다중요청");
 		
-		
-		
+
 		<input type="radio" name="요청이름1" value="값1"/>
 		<input type="radio" name="요청이름1" value="값1"/>
 		<input type="radio" name="요청이름1" value="값1"/>
@@ -64,8 +63,7 @@
 			같은 name값으로는 checked가 한개만 선택되므로 여러 객체가 radio로 나열되어 있어도 요청값은 하나만 처리된다.
 			그러므로 request.getParameter("단일요청")을 활용
 		
-		
-		
+	
 		<input type="checkbox" name="요청이름1" value="값1"/>
 		<input type="checkbox" name="요청이름1" value="값2"/>
 		<input type="checkbox" name="요청이름1" value="값3"/>
@@ -108,7 +106,16 @@
 					$("form").attr("action", "<%=path%>/calDelete.do");
 				}
 				
+				// 서버로 전송 처리 
 				$("form").submit();
+				
+				// form 선택자를 통해서 이벤트 함수에 익명함수를 두고 유효성체크를 할 수 있다.
+				$("form").submit(function(){
+					// 유효성 체크 return boolean값; 으로 t/f로 처리
+					// 프로세스 중단 처리를 할 수 있다 
+				});
+				
+				
 			});
 		
 		
