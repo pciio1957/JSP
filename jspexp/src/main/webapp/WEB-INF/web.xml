@@ -39,12 +39,30 @@
   	<param-name>IMG_PATH</param-name>
   	<param-value>/c01_img/</param-value>
   </context-param>
-   <context-param>
+  <context-param>
   	<description>다운로드경로</description>
   	<param-name>DOWN_PATH</param-name>
   	<param-value>/c02_down/</param-value>
   </context-param>
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/z01_jsp/a08_exception/a02_404.jsp</location>
+  </error-page>
+  <error-page>
+  	<exception-type>java.lang.NullPointerException</exception-type>
+  	<location>/z01_jsp/a08_exception/a03_nullPointer.jsp</location>
+  </error-page>
+  <error-page>
+  	<exception-type>java.lang.ArrayIndexOutOfBoundsException</exception-type>
+  	<location>/z01_jsp/a08_exception/a04_indexOfBound.jsp</location>
+  </error-page>
+  <error-page>
+  	<exception-type>java.lang.Exception</exception-type>
+  	<location>/z01_jsp/a08_exception/a05_Exception.jsp</location>
+  </error-page>
 </web-app>
+
+
 
 
 

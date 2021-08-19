@@ -29,26 +29,31 @@ table {
 --%>
 <%
 
-	String num01S = request.getParameter("num01");
-	String num02S = request.getParameter("num02");
+	String pname = request.getParameter("pname");
+	String priceS = request.getParameter("price");
+	String pcntS = request.getParameter("pcnt");
+	// String pcnt = Integer.parseInt(request.getParameter("pcnt"));
 	
 %>
 <script src="<%=path%>/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("h2").text("더하기 연산");
+		$("h2").text("물건 정보 페이지");
 	});
 </script>
 <body>
 	<h2 align="center"></h2>
 	
 	<%
-		if(num02S != null) {
-			int num01 = Integer.parseInt(num01S);
-			int num02 = Integer.parseInt(num02S); %>
 	
-	<h3 align="center"> 결과 </h3>
-	<h3 align="center"> <%= num01 %> + <%= num02 %> = <%= num01+num02 %> </h3>
+		if(pcntS != null) { 
+			int price = Integer.parseInt(priceS);
+			int pcnt = Integer.parseInt(pcntS);
+	%>
+	<table align="center" class="listTable">
+		<tr><th>물건명</th><td><%= pname %></td></tr>
+		<tr><th>총계</th><td><%= price * pcnt %></td></tr>
+	</table>	
 	<% } %>
 </body>
 </html>

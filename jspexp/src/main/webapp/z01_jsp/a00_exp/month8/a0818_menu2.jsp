@@ -29,26 +29,22 @@ table {
 --%>
 <%
 
-	String num01S = request.getParameter("num01");
-	String num02S = request.getParameter("num02");
-	
+	String id = (String) session.getAttribute("id");
+	String pw = (String) session.getAttribute("pw");
+
 %>
 <script src="<%=path%>/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("h2").text("더하기 연산");
+		$("h2").text("메뉴2 페이지");
 	});
 </script>
 <body>
 	<h2 align="center"></h2>
-	
-	<%
-		if(num02S != null) {
-			int num01 = Integer.parseInt(num01S);
-			int num02 = Integer.parseInt(num02S); %>
-	
-	<h3 align="center"> 결과 </h3>
-	<h3 align="center"> <%= num01 %> + <%= num02 %> = <%= num01+num02 %> </h3>
+	<% if(id != null) { %>
+	<h3 align="center"> <%= id %> 님 안녕하세요</h3>
 	<% } %>
+	
+	
 </body>
 </html>

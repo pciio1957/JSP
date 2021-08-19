@@ -29,26 +29,26 @@ table {
 --%>
 <%
 
-	String num01S = request.getParameter("num01");
-	String num02S = request.getParameter("num02");
-	
 %>
 <script src="<%=path%>/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("h2").text("더하기 연산");
+		$("h2").text("로그인 페이지");
 	});
 </script>
 <body>
 	<h2 align="center"></h2>
-	
-	<%
-		if(num02S != null) {
-			int num01 = Integer.parseInt(num01S);
-			int num02 = Integer.parseInt(num02S); %>
-	
-	<h3 align="center"> 결과 </h3>
-	<h3 align="center"> <%= num01 %> + <%= num02 %> = <%= num01+num02 %> </h3>
-	<% } %>
+	<!--  로그인 후 초기페이지로 이동 -->
+	<form id="frm01" method="post" action="a0818expans.jsp">
+	<!--  메뉴는 menu01로 이동되게 hidden값 설정 -->
+	<input type="hidden" name="page01" value="a0818_menu1.jsp"/> 
+	<table align="center" class="listTable">
+		<tr><th>아이디</th><td><input type="text" name="id" value=""/></td></tr>
+		<tr><th>비밀번호</th><td><input type="text" name="pw" value=""/></td></tr>
+		<tr><td colspan="2" style="text-align:center">
+			<input type="submit" value="로그인"/>
+		</td></tr>
+	</table>	
+	</form>
 </body>
 </html>

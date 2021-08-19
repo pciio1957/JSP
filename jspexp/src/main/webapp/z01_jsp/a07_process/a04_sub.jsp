@@ -13,7 +13,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Front 연습</title>
-<link rel="stylesheet" href="<%=path%>/a00_com/a01_com.css">
+<link rel="stylesheet" href="<%=path%>/z00_com/a01_com.css">
 <style>
 
 table {
@@ -23,10 +23,6 @@ table {
 
 </style>
 </head>
-<%-- 
-# 
-
---%>
 <%
 	String pname = request.getParameter("pname");
 	String price = request.getParameter("price");

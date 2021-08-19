@@ -66,10 +66,10 @@
 	</table>	
 	
 <jsp:useBean id="emp" class="jspexp.z02_vo.Emp"/>
-<jsp:setProperty Property="empno" name="emp" value="7780"/>
-<jsp:setProperty Property="ename" name="emp" value="황길동"/>
-<jsp:setProperty Property="job" name="emp" value="사원"/>
-<jsp:setProperty Property="sal" name="emp" value="3500"/>
+<jsp:setProperty property="empno" name="emp" value="7780"/>
+<jsp:setProperty property="ename" name="emp" value="황길동"/>
+<jsp:setProperty property="job" name="emp" value="사원"/>
+<jsp:setProperty property="sal" name="emp" value="3500"/>
 
 	<table  align="center" class="listTable">
 		<tr><th>사원번호</th><td><jsp:getProperty property="empno" name="emp"></td></tr>

@@ -15,7 +15,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- 외부 CSS 설정 호출 -->
-<link rel="stylesheet" href="<%=path%>/a00_com/a00_com.css">
+<link rel="stylesheet" href="<%=path%>/z00_com/a00_com.css">
 <style>
 
 </style>
@@ -193,7 +193,7 @@
 	if(num01S == null) num01S = "0";
 	if(num02S == null) {
 		num02S = "0";
-	
+	}
 	%>
 	
 	
@@ -216,7 +216,7 @@
 					<select name="time" class="input" >
 						<option value="">선택</option>
 						<% for(int hour=9; hour<=23; hour++) { %>
-						<option><%= hour %>:00</option>
+							<option><%= hour %>:00</option>
 						<% } %>
 					</select>
 				</td>
