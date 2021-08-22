@@ -24,13 +24,6 @@ table {
 
 </style>
 </head>
-<%-- 
-# 
-
---%>
-<%
-
-%>
 <script src="<%=path%>/z00_com/jquery-3.6.0.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){

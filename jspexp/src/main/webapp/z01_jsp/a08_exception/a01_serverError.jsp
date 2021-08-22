@@ -55,18 +55,9 @@ nums[5] = 1;
 <body>
 	
 	<h2 align="center"></h2>
-	<form id="frm01">
-	<table align="center" class="listTable">
-		<tr><th>사원명</th><td><input type="text" name="ename" value=""/></td></tr>
-		<tr><td colspan="2" style="text-align:center">
-			<input type="submit" value="검색"/>
-		</td></tr>
-	</table>	
-	</form>
-	<table align="center" class="listTable">
-		<tr><th></th><th></th><th></th></tr>
-		<tr><td></td><td></td><td></td></tr>
-	</table>	
 	
+	<!--  응용) ArrayListIndexOutOfBoundsException을 web.xml에 작성하여 
+			a04_indexOfBound.jsp 에러페이지로 작성하고 처리하기 (4조 제출, 나머지 손들기)  -->
+
 </body>
 </html>

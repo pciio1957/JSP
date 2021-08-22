@@ -50,7 +50,7 @@ table {
 	3) 쿠키의 encoding과 decoding 처리
 		한글과 같은 문자를 처리할 때 encoding으로 저장하고, decoding으로 불러와야한다
 		Encoding 처리 : URLEncoder.encoder("한글데이터", "utf-8");
-		Decoding 처리 : URLEncoder.decoder("한글데이터", "utf-8");
+		Decoding 처리 : URLDncoder.decoder("한글데이터", "utf-8");
 
 4. 쿠키값의 삭제
 	1) 쿠키값은 일단 서버와 클라이언트가 끊어지면 사라진다

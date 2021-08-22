@@ -1,16 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
     import = "jspexp.z01_database.*"
     import = "jspexp.z02_vo.*"
-    import = "java.util.*"  
-    isErrorPage = "true"  
-  
-%>
+    import = "java.util.*"    
+    %>
 <%
-	// isErrorPage = "true" 에러페이지 설정
 	request.setCharacterEncoding("utf-8");
 	String path = request.getContextPath();
 %>     
-    
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,17 +25,28 @@ table {
 <script src="<%=path%>/z00_com/jquery-3.6.0.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$("h2").text("에러 발생 페이지");
+		$("#h2Obj").text("Session 데이터 확인");
 	});
 </script>
 <body>
-	<h2 align="center"></h2>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<h2 align="center" id="h2Obj"></h2>
 
 	<table align="center" class="listTable">
-		<tr><th>에러내용</th><td><%= exception.getMessage() %></td></tr>
-		<tr><th>처리방법</th><td>데이터가 없거나 객체 생성이 되어있지 않습니다.</td></tr>
+		<tr><th>변수</th><td>${num02}</td></tr>
+		<tr><th>객체</th>
+			<td>${pro.name},
+			${pro.price},
+			${pro.cnt}</td>
+		</tr>
+		<tr><th>멤버리스트</th>
+			<td>
+				<!--  jstl의 반복문  -->
+				<c:forEach var="mem" items="${mlist}">
+					${mem.id}, ${mem.pw} 
+				</c:forEach>
+			</td>
+		</tr>
 	</table>	
-
-
 </body>
 </html>
