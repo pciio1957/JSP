@@ -14,16 +14,10 @@
 <meta charset="UTF-8">
 <title>Front 연습</title>
 <link rel="stylesheet" href="<%=path%>/z00_com/a01_com.css">
-<style type="text/css">
-
-body {
-	background-image:url('<%= path%>/z01_jsp/c01_img/img01.jfif');
-	background-repeat:no-repeat;
-	background-size:100%;
-	color:yellow;
-}
+<style>
 
 table {
+	width:70%;
 	margin-bottom:20px;
 	padding:20px;
 }
@@ -37,14 +31,21 @@ table {
 <%
 
 %>
-<script src="<%=path%>/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
+<script src="<%=path%>/z00_com/jquery-3.6.0.js" type="text/javascript"></script>
 <script type="text/javascript">
+	var id = "${id}";
+	
+	if(id == "") {
+		alert("세션이 종료되었습니다 \n 다시 로그인해주세요");
+		location.href ="a08_servar_cksession.jsp";
+	}
+	
 	$(document).ready(function(){
-		$("h2").text("해당 페이지가 없습니다");
+		$("#h2Obj").text("${id}님 로그인중!");
 	});
 </script>
 <body>
-	<h2 align="center"></h2>
+	<h2 align="center" id="h2Obj"></h2>
 
 </body>
 </html>

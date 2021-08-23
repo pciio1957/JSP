@@ -1,5 +1,7 @@
 package jspexp.z02_vo;
 
+
+// 주소 : jspexp.z02_vo.Product
 public class Product {
 	private String name;
 	private int price;

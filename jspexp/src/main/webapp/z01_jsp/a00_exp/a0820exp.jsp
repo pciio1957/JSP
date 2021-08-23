@@ -97,6 +97,7 @@ table {
 </script>
 <body>
 	<h2 align="center"></h2>
+	<jsp:forward page="a0823exp.jsp">8월 23일 정리문제로 이동!</jsp:forward>
 	
 	<h3 align="center">영화 예매</h3>
 	<form id="frm01">

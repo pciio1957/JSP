@@ -36,11 +36,13 @@ div {
 <%
 
 %>
-<script src="<%=path%>/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
+<script src="<%=path%>/z00_com/jquery-3.6.0.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("h2").text("클릭하세요").click(function(){
-			// $("요소객체").add("추가할 선택자").css("속성","속성값");
+			// $("요소객체").기능1().add("추가할 선택자").기능2("속성","속성값");
+			// 요소객체1에는 기능1메소드 처리, 기능2메소드 처리
+			// 요소객체2에는 기능2메소드만 적용 
 			$("div").css("border", "2px solid red").add("p").css("background","yellow");
 		});
 	});

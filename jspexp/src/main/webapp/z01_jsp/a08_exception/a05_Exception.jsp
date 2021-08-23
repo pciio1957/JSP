@@ -18,8 +18,9 @@
 <style>
 
 table {
+	width:70%;
 	margin-bottom:20px;
-	padding:20px;
+	padding:30px;
 }
 
 </style>

@@ -60,6 +60,11 @@
   	<exception-type>java.lang.Exception</exception-type>
   	<location>/z01_jsp/a08_exception/a05_Exception.jsp</location>
   </error-page>
+  
+  <!--  session-timeout : 분단위 세션 설정 (서버단위) -->
+  <session-config>
+  	<session-timeout>1</session-timeout>
+  </session-config>
 </web-app>
 
 

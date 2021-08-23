@@ -30,6 +30,11 @@ table {
 	$("선택자").filter(function(index, 단위객체){
 		return 조건(boolean);
 	}).속성메소드(속성, 속성값);
+	
+	$("선택자").not("선택자");
+	$("선택자').not(function(index, 단위객체){
+		return 조건(boolean);
+	});
 
 # not("선택자")
 1. 해당 선택자의 반대되는 경우를 filter하여 선택처리한다.	

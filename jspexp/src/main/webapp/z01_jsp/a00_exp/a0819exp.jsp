@@ -117,6 +117,7 @@ td {
 <body>
 
 	<h2 id="h2Title" align="center"></h2>
+	<jsp:forward page="a0823exp.jsp">8월 23일 정리문제로 이동!</jsp:forward>
 	
 	<!-- 1번 문제 -->
 	<div id="div01">	

@@ -38,7 +38,26 @@ table td {
 
 #event.target : 이벤트가 일어난 대상 객체
 - .ls("선택자") : 위 이벤트의 대상객체가 선택자에 해당하는지에 대한 여부를 boolean값으로 가져온다 
-
+	$("선택자").이벤트명(function(event){
+		// 이벤트가 일어날 요소객체가 특정 선택자일때
+		if($(event.target).is("선택자")) 
+		// 익명 이벤트 핸들러 함수의 매개변수를 통해서 event의 매개값을 가져올 수 있다.
+	});
+	
+	ex) 
+		<input type="button" onclick="click01()">
+			$("div").click(function(event){
+				if($(event.target).is("h2")) $(event.target).css("color","red");
+			});
+			-> 해당 버튼을 통해서 지금은 없지만, 앞으로 div 하위에 특정한 요소객체를
+			만들어갈때 앞으로 만들어질 요소객체에 대한 이벤트 처리시 사용된다
+			
+		<div>
+			<h2>
+			<p>
+			<h3>
+		</div>
+	
 #find("선택자")
 - 하위 요소객체를 찾아서 해당 요소객체에 대한 메소드를 처리한다.
 - 하위에 있는 요소를 다 찾음

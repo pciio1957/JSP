@@ -46,11 +46,12 @@ table {
 	title1  kind1   pay1   cnt1
 	title2  kind2   pay2   cnt2
 	
--> 월요일까지 과제
+-> 월요일까지 과제, 모르겠음 ㅠ
 
 --%>
 <%
 
+	int no = 0;
 %>
 <script src="<%=path%>/z00_com/jquery-3.6.0.js" type="text/javascript"></script>
 <script type="text/javascript">
@@ -97,7 +98,7 @@ table {
 	if(title != null) {
 		
 		response.addCookie(new Cookie(URLEncoder.encode(title, "utf-8"), cnt));
-		response.sendRedirect("a0820_show.jsp");
+		response.sendRedirect("a0820_show2.jsp");
 	}
 	
 	%>
