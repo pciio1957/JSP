@@ -1,5 +1,6 @@
 package jspexp.z02_vo;
 
+// 주소 jspexp.z02_vo.Dept
 public class Dept {
 	private int deptno;
 	private String dname;

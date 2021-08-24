@@ -2,6 +2,7 @@ package jspexp.z02_vo;
 
 import java.util.Date;
 
+// 주소 : jspexp.z02_vo.Emp
 public class Emp {
 	private int empno;
 	private String ename;
