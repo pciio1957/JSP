@@ -13,7 +13,7 @@ import jspexp.z02_vo.Emp;
 import jspexp.z02_vo.Member;
 import jspexp.z02_vo.Student;
 
-
+// 주소 jspexp.z01_database.A05_PreparedDao
 public class A05_PreparedDao {
 	private Connection con;
 	private Statement stmt;

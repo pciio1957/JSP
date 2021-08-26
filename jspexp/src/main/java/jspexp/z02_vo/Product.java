@@ -6,6 +6,7 @@ public class Product {
 	private String name;
 	private int price;
 	private int cnt;
+	private int dis; // 할인율
 	
 	public Product() {
 		super();
@@ -22,6 +23,15 @@ public class Product {
 		this.price = price;
 		this.cnt = cnt;
 	}
+	
+	public Product(String name, int price, int cnt, int dis) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.cnt = cnt;
+		this.dis = dis;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -40,4 +50,13 @@ public class Product {
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
+
+	public int getDis() {
+		return dis;
+	}
+
+	public void setDis(int dis) {
+		this.dis = dis;
+	}
+
 }

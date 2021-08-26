@@ -65,7 +65,7 @@ td {
 		request.setAttribte("mb01", new Member("himan", "7777"));
 		${mb01.id == 'himan' and mb01.pw == '7777'};
 		
-		비교연산자 - ==, eq, !=, ne, < 또는 lt, >, gt >= ge
+		비교연산자 - ==, eq, !=, ne, < 또는 lt, >는 gt >=는 ge
 		논리연산 처리 && and, || or, ! not
 		
 	4) empty
