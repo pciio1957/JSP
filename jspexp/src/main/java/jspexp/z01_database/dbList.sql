@@ -1,2 +1,6 @@
 
 SELECT * FROM MEMBER;
+
+SELECT * FROM emp02;
+
+SELECT * FROM dept03;

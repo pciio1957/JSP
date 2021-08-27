@@ -64,7 +64,7 @@ td {
 				if(xhr.readyState == 4 && xhr.status == 200) {
 					$("h3").text(xhr.responseText);
 				}
-			};
+			}
 			
 		});
 	});
