@@ -28,6 +28,19 @@ table {
  
  응용) 로그인 화면 구성 후 bean으로 요청값을 받아 dao를 호출하여 
  	데이터가 있으면 session bean에 등록되게 처리하기 (2조 제출, 나머지 손들기) 
+ 	
+ 	프로세스
+ 	1) form화면에서 id, pw 값을 입력한 후 
+ 	2) 입력된 id, pw를 받아서 데이터 처리를 하고
+ 	3) 해당 데이터가 있으면 session을 처리한다
+ 	
+ 	구현순서
+ 	1) form 화면 구성
+ 	2) form 화면에 name값에 해당하는 property가 있는 VO객체 만들기
+ 		setId(), setPw()
+ 	3) 초기화면과 입력 후 요청값이 있는 것을 구분
+ 	4) setProperty property="*"을 통해서 전체 요청값을 vo객체에 할당 
+ 	5) 데이터가 있는지 
 
 --%>
 	<jsp:useBean id="mb01" class="jspexp.z02_vo.Member"/>
@@ -37,6 +50,7 @@ table {
 	<jsp:useBean id="mb02" class="jspexp.z02_vo.Member"/>
 <%
 
+	// 요청값이 있는 경우 (초기/요청화면 구분)
 	if(mb01.getId() != null) {
 		mb01 = dao.login2(mb01.getId(), mb01.getPw());
 		session.setAttribute("mb01", mb01);

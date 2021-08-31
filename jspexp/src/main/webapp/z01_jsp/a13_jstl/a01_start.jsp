@@ -51,7 +51,7 @@ td {
 			<c:set var="변수명" value="값" scope="session범위"/>
 			선언된 변수는 el로 호출할 수 있다 ${변수명}
 			
-			ex) <s:set var="name" value="홍길동" scope="request"/>
+			ex) <c:set var="name" value="홍길동" scope="request"/>
 				<h2> 이름 : ${name}</h2>
 			
 			ex) <%
@@ -78,6 +78,9 @@ td {
 					getName01()이라는 기능메소드의 property명인 name01로
 					접근하여야하기 때문이다. 그러므로 ${p01.name01}로 접근하여 호출할 수 있다.
 			
+			cf) 주의! jstl에서는 property로 값을 변경할 때 
+				target부분에 대해 객체의 el로 선언된 변수로 처리해야한다
+				이 부분에서 useBean과 차이점이다 
 			
 		2-1) 객체 선언 방법
 			1) 이전 페이지나 controller, sriptlet으로 세션객체.setAttribute("객체명", new 객체());
@@ -102,6 +105,8 @@ td {
 			<c:if test="${el의 변수를 비교/조건 연산식}">
 				boolean이 true일 때 수행할 내용
 			</c:if>
+			
+			cf) 주의! jstl에서는 if else 구문형태가 없고 아래의 choose when 구문을 활용해야한다.
 			
 			- 다중조건문
 			<c:choose>

@@ -1,0 +1,29 @@
+
+
+#MVC 패턴으로 데이터 처리
+1. controller
+	1) 요청값 처리 : request.getParameter()
+	2) 모델데이터 선언
+		request.setAttribute("모델명", 서비스단결과값) : service단 호출 -> Dao단 호출 
+	3) view(jsp) 호출
+		
+2. View 
+	1) 초기화면
+	2) 요청값 처리 form
+	3) 결과 처리 내용 el/jstl로 출력 
+	
+3. 처리순서
+	1) 각 기능별 파일 생성
+	2) 연동 처리 
+		서비스단 : DAO 생성 및 메소드 호출 
+		컨트롤단 : 서비스단 생성 및 호출 (모델도 간단하게 생성 및 호출?)
+			뷰단 호출  
+		
+	
+#mvc 패턴에 익숙해지기 위해서 연습예제 진행!
+Member DB를 이용해서 id값 입력시 DB에 있으면 상세내용 출력, 없으면 등록되지 않은 회원 출력 
+1. 요청값 처리 - request.getParameter("id")
+2. controller - A22_MemberCheck.java, memCheck.do
+3. service - A22_MemberService.java
+4. dao - A05_PreparedDao
+3. view - a03_membercheck.jsp

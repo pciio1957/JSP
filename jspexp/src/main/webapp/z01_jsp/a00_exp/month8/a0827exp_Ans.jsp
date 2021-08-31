@@ -212,7 +212,7 @@ td {
 	
 	
 	
-	<h3 align="center">3번 문제</h3>
+	<h3 align="center">5번 문제</h3>
 	<form id="frm05">
 	<table align="center" class="listTable">
 		<tr><th>구구단</th></tr>

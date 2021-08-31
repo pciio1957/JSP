@@ -395,7 +395,7 @@ public class A05_PreparedDao {
 						rs.getInt("point")			
 				);
 			}
-			rs.close(); stmt.close(); con.close();
+			rs.close(); pstmt.close(); con.close();
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
