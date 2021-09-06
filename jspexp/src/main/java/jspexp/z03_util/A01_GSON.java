@@ -7,6 +7,24 @@ import jspexp.z02_vo.Product;
 
 public class A01_GSON {
 
+	
+	/*
+	
+	#Gson
+	1. 객체를 json 문자열로 변환
+		class Person {
+		
+			private String name;
+			public void setName(String name) {}
+			public void getName(String name) {}
+		}
+		Person p = new Person();
+		p.setName("홍길동");
+		
+		gson.toJson(객체참조) -> 
+		-> {name:"홍길동"}
+	 
+	*/
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

@@ -37,7 +37,7 @@ table {
 <%
 
 %>
-<script src="<%=path%>/a00_com/jquery-3.6.0.js" type="text/javascript"></script>
+<script src="<%=path%>/z00_com/jquery-3.6.0.js" type="text/javascript"></script>
 <script type="text/javascript">
 	$(document).ready(function(){
 		$("h2").text("해당 페이지가 없습니다");

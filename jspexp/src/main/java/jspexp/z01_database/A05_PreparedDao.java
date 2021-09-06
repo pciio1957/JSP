@@ -844,6 +844,70 @@ public class A05_PreparedDao {
 		return isOk;
 	}
 	
+	public boolean insertMem(Member ins){
+		boolean isOk = false;
+		
+		try {
+			setCon();
+			con.setAutoCommit(false);
+			String sql = "INSERT INTO MEMBER values"
+					+ "(?, ?, ?, ?, ?)";
+			
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setString(1, ins.getId());
+			pstmt.setString(2, ins.getPw());
+			pstmt.setString(3, ins.getName());
+			pstmt.setString(4, ins.getAuth());
+			pstmt.setInt(5, ins.getPoint());
+			
+			isOk = true;
+			pstmt.executeUpdate();
+			con.commit();
+			pstmt.close(); con.close();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("SQL 예외 발생~~"+e.getMessage());
+			try {
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} catch(Exception e) {
+			System.out.println("일반예외 발생:"+e.getMessage());
+		}finally {
+			if(rs!=null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+	
+			if(pstmt!=null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}			
+			if(con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}	
+			
+		}
+		return isOk;
+	}
 	
 	/*
 	1) 기능 메서드 선언.
@@ -1006,7 +1070,7 @@ public class A05_PreparedDao {
 					+ "	SET pw = ?,\r\n"
 					+ "		name = ?,\r\n"
 					+ "		auth = ?,\r\n"
-					+ "		point = ?,\r\n"
+					+ "		point = ?\r\n"
 					+ "	WHERE id = ?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, upt.getPw());
@@ -1015,9 +1079,10 @@ public class A05_PreparedDao {
 			pstmt.setInt(4, upt.getPoint());
 			pstmt.setString(5, upt.getId());
 			
-
 			pstmt.executeUpdate();
 			con.commit();
+			
+			System.out.println("수정성공!");
 			pstmt.close(); con.close();
 			
 		} catch (SQLException e) {
@@ -1218,6 +1283,70 @@ public class A05_PreparedDao {
 			pstmt.executeUpdate();
 			con.commit();
 			pstmt.close(); con.close();
+		// ex) A02_DeptDao.java 기존 소스를 활용하여 부서번호로 부서정보를 
+		// 삭제하세요 [3조]
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("SQL 예외 발생~~"+e.getMessage());
+			try {
+				// 입력 중간 문제 발생, rollback처리..
+				con.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		} catch(Exception e) {
+			System.out.println("일반예외 발생:"+e.getMessage());
+		}finally {
+			if(rs!=null) {
+				try {
+					rs.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}
+			if(stmt!=null) {
+				try {
+					stmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}	
+			if(pstmt!=null) {
+				try {
+					pstmt.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}			
+			if(con!=null) {
+				try {
+					con.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}	
+			
+		}
+	}
+	
+	public void delMem(Member del){
+		try {
+			setCon();
+			con.setAutoCommit(false);
+			String sql = "DELETE FROM MEMBER WHERE id = ?";
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setString(1, del.getId());
+			pstmt.executeUpdate();
+			con.commit();
+			pstmt.close(); con.close();
+			
 		// ex) A02_DeptDao.java 기존 소스를 활용하여 부서번호로 부서정보를 
 		// 삭제하세요 [3조]
 		} catch (SQLException e) {
